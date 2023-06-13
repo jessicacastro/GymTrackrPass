@@ -11,7 +11,11 @@
     "lint:fix": "eslint --fix --ext .ts src/",
     "prisma:studio": "prisma studio",
     "prisma:migrate": "prisma migrate dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:coverage:report": "vitest run report",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "Jessica Castro",
@@ -27,10 +31,14 @@
     "@rocketseat/eslint-config": "1.2.0",
     "@types/bcryptjs": "2.4.2",
     "@types/node": "20.3.0",
+    "@vitest/coverage-v8": "0.32.0",
+    "@vitest/ui": "0.32.0",
     "eslint": "8.42.0",
     "prisma": "4.15.0",
     "tsup": "6.7.0",
     "tsx": "3.12.7",
-    "typescript": "5.1.3"
+    "typescript": "5.1.3",
+    "vite-tsconfig-paths": "4.2.0",
+    "vitest": "0.32.0"
   }
 }
