@@ -16,7 +16,7 @@ model User {
   email         String    @unique
   password_hash String    @default("")
   created_at    DateTime  @default(now())
-  check_ins     CheckIn[]
+  checkIns      CheckIn[]
 
   @@map("users")
 }
@@ -32,7 +32,7 @@ model Gym {
 
   created_at DateTime  @default(now())
   updated_at DateTime  @updatedAt
-  check_ins  CheckIn[]
+  checkIns   CheckIn[]
 
   @@map("gyms")
 }
