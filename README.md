@@ -5,7 +5,7 @@ Trabalhamos aqui dentro com geolocalização dentro do backend, verificações c
 
 ## RFs 
 - [x] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar/logar;
+- [x] Deve ser possível se autenticar/logar;
 - [ ] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados por um usuário logado;
 - [ ] Deve ser possível o usuário logado obter seu histórico de check-ins;
@@ -27,6 +27,6 @@ Trabalhamos aqui dentro com geolocalização dentro do backend, verificações c
 ## RNFs
 
 - [x] A senha do usuário precisa estar criptografada;
-- [ ] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
+- [x] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
 - [ ] Todas as listas de dados precisam estar paginadas com 20 itens por página;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
