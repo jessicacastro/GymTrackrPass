@@ -47,6 +47,6 @@ describe('RegisterUseCase', () => {
     })
 
     expect(user).toHaveProperty('id')
-    expect(user.id).toEqual('user-1')
+    expect(user.id).toBeTypeOf('string')
   })
 })

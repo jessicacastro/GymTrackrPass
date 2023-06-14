@@ -26,7 +26,7 @@ describe('UserProfileUseCase', () => {
       userId: createdUser.id
     })
 
-    expect(user.id).toEqual('user-1')
+    expect(user.id).toEqual(createdUser.id)
     expect(user.name).toEqual('John Doe')
   })
 

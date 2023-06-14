@@ -16,7 +16,7 @@ describe('AuthenticateUseCase', () => {
   })
 
   it('should authenticate a user', async () => {
-    await usersRepository.create({
+    const createdUser = await usersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password_hash: await hash('123456', 6)
@@ -27,7 +27,7 @@ describe('AuthenticateUseCase', () => {
       password: '123456'
     })
 
-    expect(user.id).toEqual('user-1')
+    expect(user.id).toEqual(createdUser.id)
   })
 
   it('should not authenticate a user with the wrong email', async () => {
