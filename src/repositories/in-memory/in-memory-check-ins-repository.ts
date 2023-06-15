@@ -35,4 +35,12 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     
     return checkInOnSameDate || null;
   }
+
+  async findManyByUserId(userId: string, page: number) {
+    const checkIns = this.checkIns
+      .filter(checkIn => checkIn.user_id === userId)
+      .slice((page - 1) * 20, page * 20) // 20 is the limit of check-ins per page
+
+    return checkIns;
+  }
 }
