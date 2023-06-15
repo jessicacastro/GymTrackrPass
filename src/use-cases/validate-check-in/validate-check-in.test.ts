@@ -1,7 +1,7 @@
-import { InMemoryCheckInsRepository } from "@/repositories/in-memory";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { ResourceNotFoundError } from "../errors";
-import { MaxTimeLimitToCheckInError } from "../errors/max-time-limit-to-check-in-error";
+
+import { InMemoryCheckInsRepository } from "@/repositories/in-memory";
+import { MaxTimeLimitToCheckInError, ResourceNotFoundError } from "../errors";
 import { ValidateCheckInUseCase } from "./validate-check-in";
 
 let checkInsRepository: InMemoryCheckInsRepository
