@@ -1,6 +1,8 @@
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
 import { CheckIn } from '@prisma/client';
+import dayjs from 'dayjs';
 import { ResourceNotFoundError } from '../errors';
+import { MaxTimeLimitToCheckInError } from '../errors/max-time-limit-to-check-in-error';
 
 
 
@@ -26,7 +28,13 @@ export class ValidateCheckInUseCase {
 
     if (!checkIn) throw new ResourceNotFoundError()
 
-    checkIn.validated_at = new Date()
+    if (checkIn.validated_at) throw new ResourceNotFoundError()
+
+    const distanceInMinutesFromCheckInCreation = dayjs(new Date()).diff(checkIn.created_at, 'minute')
+
+    if (distanceInMinutesFromCheckInCreation > 20) throw new MaxTimeLimitToCheckInError()
+
+    checkIn.validated_at =  new Date()
 
     await this.checkInsRepository.save(checkIn)
   

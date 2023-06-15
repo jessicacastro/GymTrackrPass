@@ -12,7 +12,7 @@ Trabalhamos aqui dentro com geolocalização dentro do backend, verificações c
 - [x] Deve ser possível o usuário logado buscar academias próximas até 10Kms (10.000 metros);
 - [x] Deve ser possível o usuário buscar academias;
 - [x] Deve ser possível o usuário realizar check-in em uma academia;
-- [ ] Deve ser possível validar o check-in de um usuário;
+- [x] Deve ser possível validar o check-in de um usuário;
 - [x] Deve ser possível cadastrar uma academia;
 
 ## RNs
@@ -20,7 +20,7 @@ Trabalhamos aqui dentro com geolocalização dentro do backend, verificações c
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [x] O usuário não pode realizar 2 check-ins no mesmo dia;
 - [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
-- [ ] O check-in só pode ser validado até 20 minutos após criado;
+- [x] O check-in só pode ser validado até 20 minutos após criado;
 - [ ] O check-in só pose ser validado por administradores;
 - [ ] A academia só pode ser cadastrada por administradores;
 
