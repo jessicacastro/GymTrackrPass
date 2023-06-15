@@ -4,6 +4,7 @@ import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-c
 
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { Decimal } from '@prisma/client/runtime'
+import { MaxDistanceError, MaxNumberOfCheckInsError } from '../errors'
 import { CheckInUseCase } from './check-in'
 
 let checkInRepository: InMemoryCheckInsRepository
@@ -11,14 +12,13 @@ let gymsRepository: InMemoryGymsRepository
 let sut: CheckInUseCase
 
 const createGym = (lat?: string, lng?: string, id?: string) => (
-  gymsRepository.gyms.push({
+  gymsRepository.create({
     id: id ?? 'gym-1',
     name: 'Javascript Gym',
     description: 'The best gym to learn Javascript',
     phone: '21999999999',
-    lat: lat ? new Decimal(lat) : new Decimal(-22.7020675),
-    long: lng ? new Decimal(lng) : new Decimal(-43.2766976),
-    address: '',
+    lat: lat ? lat : -22.7020675,
+    long: lng ? lng : -43.2766976,
     created_at: new Date(),
     updated_at: new Date()
   })
@@ -71,7 +71,7 @@ describe('CheckInUseCase', () => {
       userLng: new Decimal(-43.2766976)
     })
 
-    await expect(() => checkInUseCaseFn()).rejects.toBeInstanceOf(Error)
+    await expect(() => checkInUseCaseFn()).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
   })
 
   it('should be able to create a check-in for the same user on different days', async () => {
@@ -106,6 +106,6 @@ describe('CheckInUseCase', () => {
       userLng: new Decimal(-43.2766976)
     })
 
-    await expect(() => checkInUseCaseCreateFn()).rejects.toBeInstanceOf(Error)
+    await expect(() => checkInUseCaseCreateFn()).rejects.toBeInstanceOf(MaxDistanceError)
   })
 })

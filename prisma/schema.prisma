@@ -25,7 +25,6 @@ model Gym {
   id          String  @id @default(uuid())
   name        String
   description String?
-  address     String
   phone       String?
   lat         Decimal
   long        Decimal
