@@ -9,7 +9,7 @@ Trabalhamos aqui dentro com geolocalização dentro do backend, verificações c
 - [x] Deve ser possível obter o perfil de um usuário logado;
 - [x] Deve ser possível obter o número de check-ins realizados por um usuário logado;
 - [x] Deve ser possível o usuário logado obter seu histórico de check-ins;
-- [ ] Deve ser possível o usuário logado buscar academias próximas;
+- [x] Deve ser possível o usuário logado buscar academias próximas até 10Kms (10.000 metros);
 - [x] Deve ser possível o usuário buscar academias;
 - [x] Deve ser possível o usuário realizar check-in em uma academia;
 - [ ] Deve ser possível validar o check-in de um usuário;
