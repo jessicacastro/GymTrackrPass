@@ -13,5 +13,8 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
 
     return checkIn
   }
-  
+
+  async findByUserIdOnDate(userId: string, date: Date): Promise<CheckIn | null> {
+    throw new Error('Method not implemented.')
+  }
 }
