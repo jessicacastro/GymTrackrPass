@@ -33,11 +33,11 @@ export class CheckInUseCase {
     userLat,
     userLng
   }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> => {
-    const gyn = await this.gymsRepository.findById(gymId)
+    const gym = await this.gymsRepository.findById(gymId)
 
-    if (!gyn) throw new ResourceNotFoundError()
+    if (!gym) throw new ResourceNotFoundError()
 
-    const gymCoordinates = { latitude: gyn.lat.toNumber(), longitude: gyn.long.toNumber() }
+    const gymCoordinates = { latitude: gym.lat.toNumber(), longitude: gym.long.toNumber() }
     const userCoordinates = { latitude: userLat.toNumber(), longitude: userLng.toNumber() }
 
     const distance = getDistanceBetweenCoordinates(gymCoordinates, userCoordinates)
