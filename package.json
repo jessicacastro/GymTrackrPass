@@ -1,5 +1,5 @@
 {
-  "name": "checkin-academy-solid-api",
+  "name": "gym-trackr-pass",
   "version": "1.0.0",
   "description": "Basicamente essa aplicação é como o Gypass ou TotalPass, que serve para pessoas fazerem check-in nas academias.",
   "main": "index.js",
