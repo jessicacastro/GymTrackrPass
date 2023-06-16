@@ -28,7 +28,8 @@ export class PrismaUsersRepository implements UsersRepository {
     const user = prisma.user.findUnique({
       where: {
         id: userId
-      }
+      },
+
     })
 
     return user
