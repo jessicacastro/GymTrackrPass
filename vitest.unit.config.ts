@@ -7,7 +7,7 @@ export default mergeConfig(
     test: {
       exclude: [
         ...configDefaults.exclude,
-        '**/*.e2e-{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+        '**/*.e2e.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
       ],
     },
   }),
