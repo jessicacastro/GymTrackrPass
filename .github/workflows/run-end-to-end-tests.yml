@@ -27,5 +27,5 @@ jobs:
       - run: npm run test:e2e
         env: 
           JWT_SECRET: testing
-          DATABASE_URL: postgresql://docker:docker@localhost:5432/gymtrackrpass?schema=public
+          DATABASE_URL: "postgresql://docker:docker@localhost:5432/gymtrackrpass?schema=public"
           
