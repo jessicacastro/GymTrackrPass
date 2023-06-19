@@ -1,5 +1,4 @@
 import { CheckIn } from '@prisma/client';
-import { Decimal } from '@prisma/client/runtime';
 
 import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates';
 
@@ -11,8 +10,8 @@ import { MaxDistanceError, MaxNumberOfCheckInsError, ResourceNotFoundError } fro
 interface CheckInUseCaseRequest {
   userId: string
   gymId: string
-  userLat: Decimal;
-  userLng: Decimal;
+  userLat: number;
+  userLng: number;
 }
 
 interface CheckInUseCaseResponse {
@@ -38,7 +37,7 @@ export class CheckInUseCase {
     if (!gym) throw new ResourceNotFoundError()
 
     const gymCoordinates = { latitude: gym.lat.toNumber(), longitude: gym.long.toNumber() }
-    const userCoordinates = { latitude: userLat.toNumber(), longitude: userLng.toNumber() }
+    const userCoordinates = { latitude: userLat, longitude: userLng }
 
     const distance = getDistanceBetweenCoordinates(gymCoordinates, userCoordinates)
 

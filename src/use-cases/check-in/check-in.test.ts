@@ -1,7 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 
-import { Decimal } from '@prisma/client/runtime'
 
 import { InMemoryCheckInsRepository, InMemoryGymsRepository } from '@/repositories/in-memory'
 import { MaxDistanceError, MaxNumberOfCheckInsError } from '../errors'
@@ -48,8 +47,8 @@ describe('CheckInUseCase', () => {
     const { checkIn } = await sut.execute({
       gymId: 'gym-1',
       userId: 'user-1',
-      userLat: new Decimal(-22.7020675),
-      userLng: new Decimal(-43.2766976)
+      userLat: -22.7020675,
+      userLng: -43.2766976
     })
 
     expect(checkIn.id).toBeTypeOf('string')
@@ -61,15 +60,15 @@ describe('CheckInUseCase', () => {
     await sut.execute({
       gymId: 'gym-1',
       userId: 'user-1',
-      userLat: new Decimal(-22.7020675),
-      userLng: new Decimal(-43.2766976)
+      userLat: -22.7020675,
+      userLng: -43.2766976
     })
 
     const checkInUseCaseFn = () => sut.execute({
       gymId: 'gym-1',
       userId: 'user-1',
-      userLat: new Decimal(-22.7020675),
-      userLng: new Decimal(-43.2766976)
+      userLat: -22.7020675,
+      userLng: -43.2766976
     })
 
     await expect(() => checkInUseCaseFn()).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
@@ -81,8 +80,8 @@ describe('CheckInUseCase', () => {
     await sut.execute({
       gymId: 'gym-1',
       userId: 'user-1',
-      userLat: new Decimal(-22.7020675),
-      userLng: new Decimal(-43.2766976)
+      userLat: -22.7020675,
+      userLng: -43.2766976
     })
 
     vi.setSystemTime(new Date(2023, 0, 21, 8, 0, 0))
@@ -90,8 +89,8 @@ describe('CheckInUseCase', () => {
     const { checkIn } = await sut.execute({
       gymId: 'gym-1',
       userId: 'user-1',
-      userLat: new Decimal(-22.7020675),
-      userLng: new Decimal(-43.2766976)
+      userLat: -22.7020675,
+      userLng: -43.2766976
     })
 
     expect(checkIn.id).toBeTypeOf('string')
@@ -103,8 +102,8 @@ describe('CheckInUseCase', () => {
     const checkInUseCaseCreateFn = () => sut.execute({
       gymId: 'gym-2',
       userId: 'user-1',
-      userLat: new Decimal(-22.7020675),
-      userLng: new Decimal(-43.2766976)
+      userLat: -22.7020675,
+      userLng: -43.2766976
     })
 
     await expect(() => checkInUseCaseCreateFn()).rejects.toBeInstanceOf(MaxDistanceError)

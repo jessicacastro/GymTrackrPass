@@ -43,9 +43,9 @@ export class PrismaGymsRepository implements GymsRepository {
     // get gyms within 10km of the user
     const gyms = await prisma.$queryRaw<Gym[]>`
       SELECT * FROM gyms
-      WHERE (6371e3 * acos( cos( radians(${latitude}) ) * cos( radians( latitude ) ) 
-        * cos( radians( longitude ) - radians(${longitude}) ) + sin( radians(${latitude}) ) 
-        * sin( radians( latitude ) ) ) ) <= 10000
+      WHERE (6371e3 * acos( cos( radians(${latitude}) ) * cos( radians( lat ) ) 
+        * cos( radians( long ) - radians(${longitude}) ) + sin( radians(${latitude}) ) 
+        * sin( radians( lat ) ) ) ) <= 10000
     `
 
     return gyms
