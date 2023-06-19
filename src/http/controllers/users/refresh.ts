@@ -1,22 +1,24 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
-import { z } from 'zod'
 
 
 export const refresh = async (request: FastifyRequest, reply: FastifyReply) => {
-  const registerBodySchema = z.object({
-  })
-
   await request.jwtVerify({ onlyCookie: true })
 
-  const token = await reply.jwtSign({}, {
+  const { role, sub } = request.user
+
+  const token = await reply.jwtSign({
+    role
+  }, {
     sign: {
-      sub: request.user.sub
+      sub: sub
     }
   })
 
-  const refreshToken = await reply.jwtSign({}, {
+  const refreshToken = await reply.jwtSign({
+    role
+  }, {
     sign: {
-      sub: request.user.sub,
+      sub: sub,
       expiresIn: '7d'
     }
   })
