@@ -22,5 +22,5 @@ export const create = async (request: FastifyRequest, reply: FastifyReply) => {
     
   const { checkIn } = await checkInUseCase.execute({ gymId, userId, userLat: latitude, userLng: longitude })
 
-  return reply.status(200).send({ checkIn })
+  return reply.status(201).send({ checkIn })
 }
